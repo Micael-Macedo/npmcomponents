@@ -14,6 +14,14 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
+    "paths": {
+      "header": [
+        "./dist/header"
+      ],
+      "sidebar": [
+        "./dist/sidebar"
+      ]
+    },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022"

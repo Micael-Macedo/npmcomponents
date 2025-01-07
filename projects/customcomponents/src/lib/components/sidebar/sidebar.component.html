@@ -1,0 +1,38 @@
+<div class="navbar">
+  @if(SHOW_APP){
+    <div class="flex row">
+      <img src="{{ APP_LOGO }}" alt="">
+      <h2 class="">{{ APP_NAME }}</h2>
+    </div>
+  }
+  <h3>{{ PAGE }}</h3>
+  <ul>
+    @for (navItem of NAV_ITENS; track $index) {
+      <li>
+        <a [href]="navItem.route">
+          <img [src]="navItem.img" class="icon">
+          <p>{{ navItem.name }}</p>
+        </a>
+      </li>
+    }
+  </ul>
+  <div class="column">
+      <a href="{{ config }}">Configuration</a>
+      <a href="{{ help }}">Help</a>
+  </div>
+  @if (UserInfo) {
+    <div class="userInfo">
+      <div class="info">
+        <img src="{{ UserInfo.img }}" alt="">
+        <div class="text">
+          <h3>{{ UserInfo.name }}</h3>
+          <p>{{ UserInfo.email }}</p>
+        </div>
+      </div>
+      <button></button>
+    </div>
+  }
+</div>
+<button (click)="toggleMenu()">
+  toggleMenu
+</button>
