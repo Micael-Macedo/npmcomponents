@@ -1,38 +1,64 @@
 <div class="navbar">
   @if(SHOW_APP){
-    <div class="flex row">
-      <img src="{{ APP_LOGO }}" alt="">
+  <div class="header flex col">
+    <div class="app-info flex row">
+      <img src="{{ APP_LOGO }}" alt="" class="logo-nav">
       <h2 class="">{{ APP_NAME }}</h2>
     </div>
+    <div class="search-input">
+      <input type="text" placeholder="Search" class="search">
+    </div>
+  </div>
   }
-  <h3>{{ PAGE }}</h3>
-  <ul>
-    @for (navItem of NAV_ITENS; track $index) {
+  <hr>
+  <div class="nav-menu">
+    <h3>{{ PAGE }}</h3>
+    <ul class="nav-list">
+      @for (navItem of NAV_ITENS; track $index) {
       <li>
-        <a [href]="navItem.route">
-          <img [src]="navItem.img" class="icon">
+        <a [href]="navItem.route" [class.active]="current_route == navItem.route" class="nav-item">
+          <img [src]="navItem.img" class="icon" alt="">
           <p>{{ navItem.name }}</p>
         </a>
       </li>
-    }
-  </ul>
-  <div class="column">
-      <a href="{{ config }}">Configuration</a>
-      <a href="{{ help }}">Help</a>
+      }
+    </ul>
   </div>
+  <div class="column">
+    <a href="{{ config }}" [class.active]="current_route == config">
+      <img src="" alt="">
+      Configuration
+    </a>
+    <a href="{{ help }}" [class.active]="current_route == help">
+      <img src="" alt="">
+      Help</a>
+  </div>
+  <hr>
   @if (UserInfo) {
-    <div class="userInfo">
-      <div class="info">
-        <img src="{{ UserInfo.img }}" alt="">
-        <div class="text">
-          <h3>{{ UserInfo.name }}</h3>
-          <p>{{ UserInfo.email }}</p>
-        </div>
+  <div class="userInfo">
+    <div class="info">
+      <img src="{{ UserInfo.img }}" alt="">
+      <div class="text">
+        <h3>{{ UserInfo.name }}</h3>
+        <p>{{ UserInfo.email }}</p>
       </div>
-      <button></button>
     </div>
+    <button onclick="logout()">
+      <img src="" alt="">
+    </button>
+  </div>
   }
+  @if (SHOW_TOGGLE_BUTTON) {}
+  <button (click)="toggleMenu()" class="toggle-menu">
+    @if (expandMenu) {
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+      </svg>
+    }
+    @else {
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+    </svg>
+    }
+  </button>
 </div>
-<button (click)="toggleMenu()">
-  toggleMenu
-</button>

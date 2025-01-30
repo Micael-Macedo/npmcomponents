@@ -13,14 +13,18 @@ export class SidebarComponent {
   @Input() APP_LOGO: string = ""
   @Input() USER_ICON: string = ""
   @Input() PAGE: string = ""
+
   @Input() SHOW_USER_ICON: boolean = false
   @Input() SHOW_FOOTER: boolean = false
   @Input() SHOW_APP: boolean = false
+  @Input() SHOW_TOGGLE_BUTTON = false
+  
   @Input() NAV_ITENS: NavItem[] = []
   @Input() UserInfo?: UserInfo
 
   @Input() config?: string
   @Input() help?: string
+  @Input() current_route?: string
 
   expandMenu: boolean = true
 

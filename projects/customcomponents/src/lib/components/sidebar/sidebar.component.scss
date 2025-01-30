@@ -1,0 +1,94 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+:root{
+  --default-link: #424662;
+  --selected-link: #605dff;
+  --hover-bg: #605dff10;
+  --title-menu: #7686BC;
+  --title-username: #303651;
+  --title-email: #697089;
+
+  --toggle-btn: #F1F3FF;
+  --toggle-btn-border: #CDD2F3;
+  --toggle-btn-icon: #4A516D;
+
+ }
+.navbar{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  background-color: black;
+  padding: 44px 10px;
+  max-width: 240px;
+  height: 100vh;
+  .app-info{
+
+    .logo-nav{
+      width: 40px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .nav-menu{
+    h3{
+      font-size: 11px;
+      color: var(--title-menu);
+    }
+    .nav-list{
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+    }
+    .nav-item{
+      color: var(--default-link);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 40px;
+      font-size: 13px;
+      text-transform: capitalize;
+      img{
+        width: 16px;
+      }
+      &:hover{
+        background-color: var(--hover-bg);
+      }
+      &.active{
+        color: var(--selected-link);
+      }
+    }
+  }
+}
+
+.flex{
+  display: flex;
+}
+.row{
+  flex-direction: row;
+}
+.col{
+  flex-direction: column;
+}
+
+.toggle-menu{
+  position: absolute;
+  right: 0;
+  top: 44px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background-color: var(--toggle-btn);
+  border: 1px solid var(--toggle-btn-border);
+  svg{
+    fill: var(--toggle-btn-icon);
+  }
+}
