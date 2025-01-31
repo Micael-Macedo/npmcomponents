@@ -8,3 +8,7 @@ export interface UserInfo{
   name: string
   email: string
 }
+export interface NavMenu{
+  title: string
+  navItens: NavItem[]
+}

@@ -1,3 +1,4 @@
+@import '../../styles/index.scss';
 *{
   margin: 0;
   padding: 0;
@@ -5,67 +6,51 @@
   text-decoration: none;
   list-style: none;
 }
-:root{
-  --default-link: #424662;
-  --selected-link: #605dff;
-  --hover-bg: #605dff10;
-  --title-menu: #7686BC;
-  --title-username: #303651;
-  --title-email: #697089;
-
-  --toggle-btn: #F1F3FF;
-  --toggle-btn-border: #CDD2F3;
-  --toggle-btn-icon: #4A516D;
-
- }
 .navbar{
   display: flex;
-  align-content: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
-  background-color: black;
-  padding: 44px 10px;
+  background-color: var(--background-nav);
+  padding: 44px 0px;
   max-width: 240px;
   height: 100vh;
-  .app-info{
-
-    .logo-nav{
-      width: 40px;
-      img{
-        width: 100%;
+  .header{
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    .app-info{
+      .logo-nav{
+        width: 40px;
+        img{
+          width: 100%;
+        }
+      }
+      h2{
+        font-size: 16px;
+        font-weight: bold;
       }
     }
   }
   .nav-menu{
-    h3{
-      font-size: 11px;
-      color: var(--title-menu);
-    }
-    .nav-list{
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    gap: 24px;
+    .info{
+      h3{
+        font-size: 11px;
+        color: var(--title-menu);
+      }
+      .nav-list{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
 
-    }
-    .nav-item{
-      color: var(--default-link);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      height: 40px;
-      font-size: 13px;
-      text-transform: capitalize;
-      img{
-        width: 16px;
-      }
-      &:hover{
-        background-color: var(--hover-bg);
-      }
-      &.active{
-        color: var(--selected-link);
       }
     }
+  }
+  &.hide{
+    width: 80px;
   }
 }
 
@@ -79,9 +64,20 @@
   flex-direction: column;
 }
 
+.aic{
+  align-items: center;
+}
+
+.jcc{
+  justify-content: center;
+}
+hr{
+  margin: 16px 0;
+}
+
 .toggle-menu{
   position: absolute;
-  right: 0;
+  right: -20px;
   top: 44px;
   width: 32px;
   height: 32px;
