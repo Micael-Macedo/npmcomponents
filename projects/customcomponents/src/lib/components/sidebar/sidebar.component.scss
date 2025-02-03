@@ -13,14 +13,20 @@
   position: relative;
   background-color: var(--background-nav);
   padding: 44px 0px;
-  max-width: 240px;
+  width: 250px;
   height: 100vh;
+
+  .main, .footer{
+    width: 100%;
+  }
+
   .header{
     padding: 0 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 16px;
+
     .app-info{
       .logo-nav{
         width: 40px;
@@ -33,7 +39,17 @@
         font-weight: bold;
       }
     }
+
+    .search-input{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      input{
+        width: 100%;
+      }
+    }
   }
+
   .nav-menu{
     gap: 24px;
     .info{
@@ -49,8 +65,12 @@
       }
     }
   }
+
   &.hide{
     width: 80px;
+    h2{
+      display: none;
+    }
   }
 }
 

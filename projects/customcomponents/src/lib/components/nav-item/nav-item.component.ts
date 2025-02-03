@@ -11,19 +11,29 @@ import { NavItem } from '../../models/Nav.model';
 })
 export class NavItemComponent implements OnInit{
   selected: boolean = false;
-  toggleMenu: boolean = false
+  hideContent: boolean = false
   navService:NavService = inject(NavService)
 
   @Input() navItem!: NavItem
 
+  checkRoute(route: string): void{
+    if(route == this.navItem.route){
+      this.selected = true
+    }else{
+      this.selected = false
+    }
+  }
 
   ngOnInit(): void {
-    this.navService.currentRoute.subscribe(
-      route => route == this.navItem.route ? this.selected = true : this.selected = false
+    this.navService.emitCurrentRoute.subscribe(
+      (route) => {
+        this.checkRoute(route)
+      }
     )
-    this.navService.statusMenu.subscribe(
-      statusMenu => this.toggleMenu = statusMenu
+    this.navService.emitStatusMenu.subscribe(
+      statusMenu => this.hideContent = !statusMenu
     )
+    this.checkRoute(this.navService.getCurrentRoute())
   }
 
 }

@@ -6,17 +6,22 @@ import { EventEmitter, Injectable} from '@angular/core';
 export class NavService {
   constructor() { }
 
-  statusMenu = new EventEmitter<boolean>()
-  currentRoute = new EventEmitter<string>()
+  emitStatusMenu = new EventEmitter<boolean>()
+  emitCurrentRoute = new EventEmitter<string>()
+  currentRoute: string = ""
+
 
   expandMenu(statusMenu: boolean){
-    console.log(statusMenu)
-    this.statusMenu.emit(statusMenu)
+    this.emitStatusMenu.emit(statusMenu)
   }
 
   setRouteUrl(route: string){
-    console.log(route)
-    this.currentRoute.emit(route)
+    this.currentRoute = route
+    this.emitCurrentRoute.emit(route)
+  }
+
+  getCurrentRoute(){
+    return this.currentRoute
   }
 
 }
