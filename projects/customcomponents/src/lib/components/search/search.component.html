@@ -1,0 +1,4 @@
+<div class="search-content" [class.hide]="hideContent">
+  <img [src]="searchInfo.img" alt="" (click)="toggleSearch()">
+  <input type="text" [placeholder]="searchInfo.placeholder" class="search" (input)="updateSearch(searchInput.value)" #searchInput>
+</div>

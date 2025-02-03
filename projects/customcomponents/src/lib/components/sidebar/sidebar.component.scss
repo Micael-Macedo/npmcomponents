@@ -15,19 +15,21 @@
   padding: 44px 0px;
   width: 250px;
   height: 100vh;
+  transition: .5s;
 
   .main, .footer{
     width: 100%;
   }
 
   .header{
-    padding: 0 10px;
+    padding: var(--nav-padding);
     display: flex;
-    align-items: center;
     flex-direction: column;
     gap: 16px;
 
     .app-info{
+      display: flex;
+      gap: 4px;
       .logo-nav{
         width: 40px;
         img{
@@ -54,6 +56,8 @@
     gap: 24px;
     .info{
       h3{
+        padding: var(--nav-padding);
+        margin-bottom: 4px;
         font-size: 11px;
         color: var(--title-menu);
       }
@@ -69,7 +73,11 @@
   &.hide{
     width: 80px;
     h2{
+      color: var(--title-app);
       display: none;
+    }
+    h3, h4{
+      visibility: hidden;
     }
   }
 }
@@ -92,12 +100,14 @@
   justify-content: center;
 }
 hr{
-  margin: 16px 0;
+  height: 1px;
+  margin: 16px 20px;
+
 }
 
 .toggle-menu{
   position: absolute;
-  right: -20px;
+  right: -16px;
   top: 44px;
   width: 32px;
   height: 32px;

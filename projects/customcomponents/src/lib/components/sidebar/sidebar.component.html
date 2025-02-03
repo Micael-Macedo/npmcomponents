@@ -6,9 +6,12 @@
         <img src="{{ APP_LOGO }}" alt="" class="logo-nav">
         <h2 class="">{{ APP_NAME }}</h2>
       </div>
-      <div class="search-input">
-        <input type="text" placeholder="Search" class="search">
-      </div>
+      @if (SEARCH_INFO) {
+        <lib-search class="search-input"
+        [searchInfo]="SEARCH_INFO"
+        >
+        </lib-search>
+      }
     </div>
     }
     <hr>
@@ -43,9 +46,9 @@
           <p>{{ UserInfo.email }}</p>
         </div>
       </div>
-      <button onclick="logout()">
+      <a href="{{ UserInfo.logoutRoute }}">
         <img src="" alt="">
-      </button>
+      </a>
     </div>
     }
   </div>
