@@ -1,8 +1,9 @@
-<a href="{{ navItem.route }}"
-  [class.active]="selected"
-  [class.hideContent]="hideContent" class="nav-item">
+<a href="{{ navItem.route }}" [class.active]="selected" [class.hideContent]="hideContent" class="nav-item">
   <img src="{{ navItem.img }}" alt="">
-  <p>
-    {{ navItem.name }}
-  </p>
+  <div class="title">
+    <div class="arrow-left"></div>
+    <p>
+      {{ navItem.name }}
+    </p>
+  </div>
 </a>
